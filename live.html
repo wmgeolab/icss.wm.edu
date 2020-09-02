@@ -51,7 +51,7 @@
                     <img src="images/pic05.jpg" alt="" />
                 </span>
                 <header class="major">
-                    <h1>Livelihoods</h1>
+                    <h1>Livelihoods & Climate Change</h1>
                 </header>
                 <div class="content">
                     <p>Health. Income. Security. A Voice. Let's make sure everyone has them.</p>
@@ -68,7 +68,7 @@
                     <header class="major">
                         <h2>Why It Matters</h2>
                     </header>
-                    <p>Large-scale societal modeling is only a tool - we seek to ensure it's used for good.  Our methods and applications are nearly entirely derived in the context of improving human livelihoods - be it security, health, income inequality, or advancing democracy.</p>
+                    <p>Large-scale societal modeling is only a tool - we seek to ensure it's used for good.  Our methods and applications are nearly entirely derived in the context of improving human livelihoods - especially in face of climate change.</p>
                 </div>
             </section>
 
@@ -139,6 +139,41 @@
                             </header>
                             <p>One of the most dominant drivers of human wellbeing - good and bad - has been the massive urbanization of human populations across the globe.  With over 50% of humans living in highly dense urban environments, a shift that has only occured in the last decades, we are now faced with unprecedented challenges related to supply chains, the environment, and disease.  We leverage social media and satellite imagery to better understand physical urban structures, where they exist, and the role they play in this new paradigm.
                             </p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <a href="#" class="image">
+                        <img src="images/pic08.jpg" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Counterfactual Machine Learning to Measure Climate Change Effectiveness</h3>
+                                <small>
+                                    <div id="cmClim_peerreview">| Peer-Reviewed Papers</div>
+                                    <div id="cmClim_news">| News</div>
+                                    <div id="cmClim_code">| Code</div>
+                                </small>
+                            </header>
+                            <p>Every year, billions of dollars are allocated across thousands of geographic regions for environmental purposes.  While not near the total we need to prevent climate change impacts, these interventions are critical in our attempts to mitigate.  There is relatively little knowledge about the best ways to assess effectiveness across the enormous geographic and temporal scopes this funding is allocated to.  Working across disciplines, we have pioneered and applied new machine learning techniques to rapidly assess changes in satellite-derived forest cover on a global scale, facilitating an understanding of carbon sequestration impacts.  Recent research has begun to explore secondary co-benefits of environmental projects, including impacts on income.</p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <a href="#" class="image">
+                        <img src="images/pic05.jpg" alt="" data-position="top center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Climate Mitigation & Deep Learning</h3>
+                                <small>
+                                    <div id="dl_peerreview">| Peer-Reviewed Papers</div>
+                                    <div id="dl_news">| News</div>
+                                </small>
+                            </header>
+                            <p>Recent research has begun to explore the capability of deep learning to sense a range of attributes relevant to climate change - including, for example, socioeconomic vulnerability, forest fragmentation, or biomass loss.  In this pillar of activity, we are exploring the potential of Deep Learning - and associated techniques - for measurement purposes.</p>
                         </div>
                     </div>
                 </section>
@@ -214,6 +249,27 @@
                                     $("#urb_news").prepend("<a href='" + row[17] + "' class='far fa-newspaper'><span class='label'>&nbsp;</span></a>");
                                 }
 
+                                if (row[4] == 1 && row[12] == 1) {
+                                    $("#cmClim_peerreview").prepend("<a href='" + row[17] + "' class='fas fa-file-alt'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[5] == 1 && row[13] == 1 && !row[16].includes("CODE")) {
+                                    $("#cmClim_news").prepend("<a href='" + row[17] + "' class='far fa-newspaper'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[5] == 1 && row[13] == 1 && row[16].includes("CODE")) {
+                                    $("#cmClim_code").prepend("<a href='" + row[17] + "' class='far fa-newspaper'><span class='label'>&nbsp;</span></a>");
+                                }
+
+
+                                if (row[4] == 1 && row[8] == 1) {
+                                    $("#dl_peerreview").prepend("<a href='" + row[17] + "' class='fas fa-file-alt'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[5] == 1 && row[9] == 1 && !row[16].includes("CODE")) {
+                                    $("#dl_news").prepend("<a href='" + row[17] + "' class='far fa-newspaper'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[5] == 1 && row[9] == 1 && row[16].includes("CODE")) {
+                                    $("#dl_code").prepend("<a href='" + row[17] + "' class='far fa-newspaper'><span class='label'>&nbsp;</span></a>");
+                                }
+
 
                               
 
@@ -266,6 +322,34 @@
                                 if (row[18] == 1 && row[1] == "Graduate GS") {
                                     $("#urb_people").prepend("<a href='" + row[4] + "' class='fas fa-graduation-cap'><span class='label'>&nbsp;</span></a>");
                                 }
+
+                                if (row[13] == 1 && row[1] == "Faculty") {
+                                    $("#cmClim_people").prepend("<a href='" + row[4] + "' class='fas fa-user'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[13] == 1 && row[1] == "Ph.D. Student") {
+                                    $("#cmClim_people").prepend("<a href='" + row[4] + "' class='fas fa-user-graduate'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[13] == 1 && row[1] == "Graduate GS") {
+                                    $("#cmClim_people").prepend("<a href='" + row[4] + "' class='fas fa-graduation-cap'><span class='label'>&nbsp;</span></a>");
+                                }
+
+                                if (row[14] == 1 && row[1] == "Faculty") {
+                                    $("#dl_people").prepend("<a href='" + row[4] + "' class='fas fa-user'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[14] == 1 && row[1] == "Ph.D. Student") {
+                                    $("#dl_people").prepend("<a href='" + row[4] + "' class='fas fa-user-graduate'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[14] == 1 && row[1] == "Graduate GS") {
+                                    $("#dl_people").prepend("<a href='" + row[4] + "' class='fas fa-graduation-cap'><span class='label'>&nbsp;</span></a>");
+                                }
+
+                                if (row[10] == 1 && row[1] == "Faculty") {
+                                    $("#od_people").prepend("<a href='" + row[4] + "' class='fas fa-user'><span class='label'>&nbsp;</span></a>");
+                                }
+                                if (row[10] == 1 && row[1] == "Ph.D. Student") {
+                                    $("#od_people").prepend("<a href='" + row[4] + "' class='fas fa-user-graduate'><span class='label'>&nbsp;</span></a>");
+                                }
+
 
                             }
                             
