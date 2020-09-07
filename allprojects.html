@@ -184,7 +184,20 @@
 
     <script>
 
-        
+        trackVar = setInterval(loadRoll, 20);
+        function loadRoll()
+        {
+            var rand = Math.floor(10 + Math.random()*89);
+            $("#projCount").html(rand);
+            $("#leadCount").html(rand);
+            $("#studentCount").html(rand);
+            $("#gradCount").html(rand);
+            $("#gradUnder").html(rand);
+            $("#gradPhD").html(rand);  
+        }
+                
+      
+
         var url = "https://sheets.googleapis.com/v4/spreadsheets/1d3GHKrnSzNDbx2TZC6HjUqYUeAj6bpZsiO7GVaX-SR0/values:batchGet?ranges=Projects&ranges=Teams&key=AIzaSyCIiiCOIg8OXDsAMO9KMpImIoIeZ3LWHTQ"
 
         $.get(url)
@@ -306,11 +319,16 @@
                                     appStr = appStr + '<ul class="actions" style="margin-bottom:0px;">';
 
                                     if (typeof row[3] != 'undefined' && typeof row[4] != 'undefined' && window.innerWidth > 700) {
+                                        if(row[4].length > 1){
                                         appStr = appStr + '<li><a href="' + row[4] + '" class="button primary fit small">' + row[3] + '</a></li>';
+                                        }
                                     }
 
                                     if (typeof row[3] != 'undefined' && typeof row[4] != 'undefined' && window.innerWidth < 700) {
+                                        if(row[4].length > 1)
+                                        {
                                         appStr = appStr + '<li><a href="' + row[4] + '" class="button primary fit small">More</a></li>';
+                                        }
                                     }
 
                                     if(window.innerWidth >= 1000)
@@ -381,7 +399,7 @@
                 for (var i = 0; i < cells.length; i++) {
                     $(cells[i]).css("background", wmColors[Math.floor(Math.random() * Math.floor(4))]); //A class selector would work too
                 }
-
+                clearInterval(trackVar);
                 $("#projCount").html(projCounter);
                 $("#leadCount").html(leadCounter);
                 $("#studentCount").html(studentCounter);

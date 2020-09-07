@@ -185,7 +185,6 @@
 		});
 
 	// Header.
-	console.log(altern);
 		if ($banner.length > 0
 		&&	($header.hasClass('alt') || altern==true)) {
 			var altern = true;
